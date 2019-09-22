@@ -14,10 +14,10 @@ void display_list(void);
 void delete_list(void);
 void dl(void);
 
-int main()
+void main()
 {
-    char ch, n;
-    int i;
+    char  n;
+    int i,ch;
     do
     {
         printf("\nFunction:\n");
@@ -118,17 +118,20 @@ void insert_list(void)
             scanf("%d", &pos);
             if (pos > 1)
             {
-                pos = pos - 1;
                 trav_n = h;
-                for (int i = 1; i < pos; i++)
+                for (int i = 1; i < pos-1; i++)
                 {
-                    if (trav_n->next == NULL && i != pos - 1)
+                    if (trav_n->next == NULL)
                     {
                         printf("Invalid Input\nList not Contain These no. Elements\n");
                         goto before;
                     }
                     trav_n = trav_n->next;
                 }
+            printf("Information:");
+            scanf("%d", &new_n->info);
+            new_n->next = trav_n->next;
+            trav_n->next = new_n;
             }
             else if (pos == 1)
                 goto first;
