@@ -6,17 +6,16 @@ void push(int n);
 void peek(void);
 void display(void);
 void change(int post,int val);
-int main()
+void main()
 {
-    char sw;
-    int n, k, i;
+    int n, k, i,sw;
     do
     {
         printf("What do you want do:\n1.PUSH\t\t2.POP\n3.PEEK\t\t4.CHANGE\n5.DISPLAY\t6.PEEP\t\t7.EXIT\n");
-        scanf(" %c", &sw);
+        scanf(" %d", &sw);
         switch (sw)
         {
-        case '1':
+        case 1:
             printf("Enter no of Elements You Want Enter In STACK: ");
             scanf("%d", &k);
             for (i = 0; i < k; i++)
@@ -26,47 +25,37 @@ int main()
                 push(n);
             }
             break;
-        case '2':
+        case 2:
             printf("POPED RESULT:%d\n", pop());
             break;
-        case '3':
+        case 3:
             peek();
             break;
-        case '4':
+        case 4:
             printf("Enter Position :");
             scanf("%d",&k);
             printf("Enter Value :");
             scanf("%d",&n);
             change(k,n);
             break;
-        case '5':
+        case 5:
             display();
             break;
-        case '6':
+        case 6:
             printf("Enter Position :");
             scanf("%d",&k);
             peep(k);
             break;
-        case '7':
-            return 0;
+        case 7:
             break;
         default:
             printf("Wrong Input");
             break;
         }
-        i = 1;
-        printf("Do you Want to Continue(y/n):");
-        scanf(" %c", &sw);
-        if (sw == 'y')
-        {
-            i = 0;
-        }
-    } while (i == 0);
-    return 0;
+    } while (sw != 7);
 }
 int pop(void)
 {
-    int k;
     if (t < 0)
     {
         printf("Stack Underflow\n");
